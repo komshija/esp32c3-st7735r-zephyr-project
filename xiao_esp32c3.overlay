@@ -1,0 +1,41 @@
+&spi2 {
+    st7735s: st7735s@0{
+        compatible = "sitronix,st7735r";
+        reg = <0>;
+        width = <160>;
+        height = <80>;
+
+        caset = [00 00 00 4f];
+        raset = [00 00 00 9f];
+
+        colmod = <0x05>;
+        madctl = <0xA0>;
+
+        cmd-data-gpios = <&gpio0 3 GPIO_ACTIVE_LOW>;
+        reset-gpios = <&gpio0 4 GPIO_ACTIVE_LOW>;
+
+        x-offset = <0>;
+        y-offset = <25>;
+        
+        gamctrp1 = [02 1c 07 12 37 32 29 2d 29 25 2b 39 00 01 03 10];
+		gamctrn1 = [03 1d 07 06 2e 2c 29 2d 2e 2e 37 3f 00 00 02 10];
+
+        pwctr1 = [a2 02 84];
+        pwctr2 = [c5];
+        pwctr3 = [0a 00];
+        pwctr4 = [8a 2a];
+        pwctr5 = [8a ee];
+
+        vmctr1 = <0x0E>;
+
+        frmctr1 = [01 2c 2c];
+        frmctr2 = [01 3c 2d];
+        frmctr3 = [01 3c 2d 01 3c 2d];
+ 
+        invctr = <0x07>;
+
+        inversion-on;
+        
+        spi-max-frequency = <40000000>;
+    };
+};
